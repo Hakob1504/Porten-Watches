@@ -1,4 +1,4 @@
-// header part 2
+// header part
 let menuOpenClose = document.querySelector('.menu_open_close');
 let menu = document.querySelector('.menu');
 let menuUl = document.querySelector('ul');
@@ -37,8 +37,37 @@ closeSearch.addEventListener('click', () => {
         menuUl.style = `display: flex; flex-direction: column; align-items: center; gap: 20px;`;
     }
 })
+// header part end
 
+// login content appear
+let signInBtn = document.querySelector('#sign_in');
+let loginWindow = document.querySelector('.login_window');
+let loginWindowCloseBtn = document.querySelector('.login_window_close_btn');
 
+signInBtn.addEventListener('click', (e) => {
+    e.preventDefault()
+    loginWindow.classList.add('lgn_window');
+})
+loginWindowCloseBtn.addEventListener('click', () => {
+    loginWindow.classList.remove('lgn_window');
+})
+
+// login content appear end
+
+// sign up content appear
+let signUpBtn = document.querySelector('#sign_up');
+let signUpWindow = document.querySelector('.signUp_window');
+let signUpWindowCloseBtn = document.querySelector('.signUp_window_close_btn');
+
+signUpBtn.addEventListener('click', (e) => {
+    e.preventDefault()
+    signUpWindow.classList.add('lgn_window');
+})
+signUpWindowCloseBtn.addEventListener('click', () => {
+    signUpWindow.classList.remove('lgn_window');
+})
+
+// sign up content appear end
 // collection 2018
 let collection_2018_p = document.querySelector('.collection_2018_p');
 let collection_2018_btn = document.querySelector('.collection_2018_h2');
@@ -78,7 +107,7 @@ window.addEventListener('load', () => {
             moreBtn.addEventListener('click', () => {
                 if (i > 4) {
                     div.classList.toggle('hidden_watches');
-                    if(!div.classList.contains('hidden_watches')) {
+                    if (!div.classList.contains('hidden_watches')) {
                         moreBtn.innerHTML = 'Скрыть'
                     } else {
                         moreBtn.innerHTML = 'Ещё'

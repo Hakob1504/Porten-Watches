@@ -59,6 +59,131 @@ a:active {
     gap: 15px;
 }
 
+/* login window */
+.login_window,
+.signUp_window {
+    border: 2px solid #D0D0D0;
+    background: #1F1F1F;
+    position: fixed;
+    top: 20%;
+    display: none;
+}
+
+.lgn_window {
+    display: block;
+}
+
+.login_content p,
+.signUp_content p {
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+    color: #FFFFFF;
+}
+
+.login_window_close,
+.signUp_window_close {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.login_window_close .login_window_close_btn,
+.signUp_window_close .signUp_window_close_btn {
+    background-color: rgb(171, 5, 5);
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+}
+
+.login_window_close .login_window_close_btn:hover,
+.signUp_window_close .signUp_window_close_btn:hover {
+    opacity: 0.6;
+}
+
+.login_window_close .login_window_close_btn:active,
+.signUp_window_close .signUp_window_close_btn:active {
+    opacity: 0.4;
+}
+
+.login_window form,
+.signUp_window form {
+    padding: 20px 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+form .user_avatar {
+    width: 150px;
+    height: 150px;
+}
+
+form .user_avatar img {
+    width: 150px;
+    height: 150px;
+}
+
+.login_content,
+.signUp_content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input_field {
+    width: 200px;
+    outline: none;
+    border: none;
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.4);
+    color: #FFFFFF;
+}
+
+.input_field::placeholder {
+    color: #FFFFFF;
+}
+
+.remember_me {
+    display: flex;
+    gap: 5px;
+}
+
+.login_btn {
+    display: flex;
+    justify-content: center;
+}
+
+.login_btn input {
+    padding: 5px 20px;
+    cursor: pointer;
+    background: transparent;
+    border: 2px solid #FFFFFF;
+    color: #FFFFFF;
+}
+
+.login_btn input:hover {
+    opacity: 0.6;
+}
+
+.login_btn input:active {
+    opacity: 0.4;
+}
+
+.forgotPass_div {
+    display: flex;
+    gap: 5px;
+    align-items: baseline;
+}
+
+.forgotPass_div a {
+    color: #FFFFFF;
+}
+
+/* login window end */
 .log_in {
     display: flex;
     align-items: center;
@@ -539,10 +664,12 @@ ul li:hover {
     grid-template-columns: auto auto auto auto;
     gap: 40px;
 }
-.hidden_watches{
+
+.hidden_watches {
     display: none;
 }
-.more{
+
+.more {
     padding: 10px 20px;
     background: none;
     color: #FFFFFF;
@@ -800,203 +927,293 @@ ul li:hover {
         padding: 50px;
     }
 }
+
 @media screen and (max-width: 700px) {
-    .watch a img{
+    .watch a img {
         width: 157px;
     }
 }
+
 @media screen and (max-width: 600px) {
-    .watch a img{
+    .watch a img {
         width: 127px;
     }
-    .watch_name{
+
+    .watch_name {
         font-size: 15px;
         line-height: 18px;
     }
-    .watch_price{
+
+    .watch_price {
         font-size: 14px;
         line-height: 16px;
     }
-    .brands img{
+
+    .brands img {
         width: 200px;
     }
-    .support{
+
+    .support {
         flex-direction: column;
         align-items: center;
         gap: 10px;
     }
 }
+
 @media screen and (max-width: 500px) {
-    .season_watches{
+    .season_watches {
         gap: 20px;
     }
+
     .new_watches {
         grid-template-columns: auto auto;
     }
-    .brands img{
+
+    .brands img {
         width: 150px;
     }
 }
+
 @media screen and (max-width: 465px) {
-    .season_watches{
+
+    .login_window form,
+    .signUp_window form {
+        padding: 20px 60px;
+    }
+
+    .login_window .user_avatar,
+    .signUp_window .user_avatar {
+        width: 100px;
+        height: 100px;
+    }
+
+    .login_window .user_avatar img,
+    .signUp_window .user_avatar img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .input_field {
+        width: 150px;
+    }
+
+    .remember_me p {
+        font-size: 14px;
+    }
+
+    .forgotPass_div {
+        font-size: 14px;
+    }
+
+    .season_watches {
         flex-direction: column;
     }
-    .footer_part2{
+
+    .footer_part2 {
         padding: 20px;
     }
 }
+
 @media screen and (max-width: 435px) {
-    .content_logo{
+    .content_logo {
         padding: 63px 42px;
     }
-    .content_logo p{
+
+    .content_logo p {
         font-size: 18px;
     }
+
     .footer_part1 .about_shop p {
         padding: 0 60px;
     }
-    .footer_part1 .mailing_list p{
+
+    .footer_part1 .mailing_list p {
         padding: 0 60px;
     }
 }
 
 @media screen and (max-width: 400px) {
-    .old_collection{
+    .old_collection {
         padding: 10px;
     }
+
     .footer_part1 .about_shop p {
         padding: 0 50px;
     }
-    .footer_part1 .categories .products{
+
+    .footer_part1 .categories .products {
         grid-template-columns: 80px 140px;
     }
-    .footer_part1 .mailing_list p{
+
+    .footer_part1 .mailing_list p {
         padding: 0 50px;
     }
+
     .footer_part1 .mailing_list .input .submit {
         font-size: 12px;
         line-height: 100%;
     }
 }
+
 @media screen and (max-width: 350px) {
-    .search_form .search{
+    .search_form .search {
         width: 200px;
     }
-    .brands img{
+
+    .brands img {
         width: 120px;
     }
+
     .footer_part1 .about_shop p {
         padding: 0 30px;
     }
-    .footer_part1 .mailing_list p{
+
+    .footer_part1 .mailing_list p {
         padding: 0 30px;
     }
+
     .footer_part1 .mailing_list .input .submit {
         font-size: 10px;
         line-height: 100%;
     }
 }
+
 @media screen and (max-width: 330px) {
-    .first_part{
+    .first_part {
         padding: 10px;
     }
-    .search_form .search{
+
+    .login_window form,
+    .signUp_window form {
+        padding: 20px;
+    }
+
+    .search_form .search {
         width: 200px;
     }
-    .content_logo{
+
+    .content_logo {
         padding: 40px 30px;
     }
-    .season_content .season2020{
+
+    .season_content .season2020 {
         font-size: 30px;
     }
-    .season_watches{
+
+    .season_watches {
         flex-direction: column;
     }
-    .new_collection h2{
+
+    .new_collection h2 {
         font-size: 30px;
         padding: 0 20px;
     }
-    .old_collection{
+
+    .old_collection {
         padding: 50px;
     }
-    .old_collection_content h2{
+
+    .old_collection_content h2 {
         font-size: 30px;
     }
+
     .old_collection_content {
         padding: 0 40px;
     }
-    .old_collection a{
+
+    .old_collection a {
         font-size: 16px;
     }
-    .new_coming h2{
+
+    .new_coming h2 {
         font-size: 30px;
     }
-    .new_watches{
+
+    .new_watches {
         grid-template-columns: auto;
     }
-    .our_brands h2{
+
+    .our_brands h2 {
         font-size: 30px;
     }
-    .brands img{
+
+    .brands img {
         width: 120px;
     }
+
     .footer_part1 .about_shop p {
         padding: 0 30px;
     }
-    .footer_part1 .mailing_list p{
+
+    .footer_part1 .mailing_list p {
         padding: 0 30px;
     }
-    .footer_part1 .mailing_list .input .follow{
+
+    .footer_part1 .mailing_list .input .follow {
         width: 120px;
     }
-    .footer_part1 .mailing_list .input .follow::placeholder{
+
+    .footer_part1 .mailing_list .input .follow::placeholder {
         font-size: 10px;
     }
+
     .footer_part1 .mailing_list .input .submit {
         font-size: 8px;
         line-height: 100%;
     }
 }
+
 @media screen and (max-width: 280px) {
-    .first_part{
+    .first_part {
         padding: 10px 0;
     }
-    
-    .second_part .search{
+
+    .second_part .search {
         width: 110px;
     }
-    .content_logo img{
+
+    .content_logo img {
         width: 150px;
     }
-    .content_logo{
+
+    .content_logo {
         padding: 20px 10px;
     }
-    .season_content .season2020{
+
+    .season_content .season2020 {
         font-size: 24px;
     }
-    .old_collection_content h2{
+
+    .old_collection_content h2 {
         font-size: 24px;
     }
-    .new_collection h2{
+
+    .new_collection h2 {
         font-size: 24px;
     }
+
     .brands {
         grid-template-columns: auto;
     }
-    .new_coming h2{
+
+    .new_coming h2 {
         font-size: 24px;
     }
-    .our_brands h2{
+
+    .our_brands h2 {
         font-size: 24px;
     }
-    .footer_part1 .categories .products{
+
+    .footer_part1 .categories .products {
         grid-template-columns: 140px;
     }
+
     .footer_part1 .mailing_list .input .submit {
         padding: 10px;
         font-size: 8px;
         line-height: 80%;
     }
+
     .footer_part2 {
         padding: 20px 0;
     }
