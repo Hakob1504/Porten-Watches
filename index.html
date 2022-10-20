@@ -21,6 +21,77 @@
                     </div>
                     <p class="work_days">| Работаем 7 дней в неделю | 9:00 — 18:00</p>
                 </div>
+                <div class="login_window">
+                    <div class="login_window_close">
+                        <button class="login_window_close_btn">X</button>
+                    </div>
+                    <form action="#">
+                        <h2>Войти</h2>
+                        <div class="user_avatar">
+                            <img src="./img/login/user.png" alt="">
+                        </div>
+                        <div class="login_content">
+                            <div class="userName_div">
+                                <input placeholder="Имя Пользователя" class="input_field" id="uName_input" name="uName"
+                                    type="text">
+                            </div>
+                            <div class="userPass_div">
+                                <input placeholder="Пароль" class="input_field" id="uPass_input" type="password"
+                                    name="uPass">
+                            </div>
+                            <div class="remember_me">
+                                <input type="checkbox" name="uRemember" id="uRemember">
+                                <label for="uRemember">
+                                    <p>Запомнить</p>
+                                </label>
+                            </div>
+                            <div class="login_btn">
+                                <input type="submit" value="Войти">
+                            </div>
+                            <div class="forgotPass_div">
+                                <a href="#">Забыли пароль?</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="signUp_window">
+                    <div class="signUp_window_close">
+                        <button class="signUp_window_close_btn">X</button>
+                    </div>
+                    <form action="#">
+                        <h2>Регистрация</h2>
+                        <div class="user_avatar">
+                            <img src="./img/login/user.png" alt="">
+                        </div>
+                        <div class="signUp_content">
+                            <div class="signUp_userName_div">
+                                <input placeholder="Имя Пользователя" class="input_field" id="signUp_uName_input"
+                                    name="uName" type="text">
+                            </div>
+                            <div class="signUp_userEmail_div">
+                                <input placeholder="Эл. Адрес" class="input_field" id="signUp_uEmail_input"
+                                    name="uEmail" type="email">
+                            </div>
+                            <div class="signUp_userPass_div">
+                                <input placeholder="Пароль" class="input_field" id="signUp_uPass_input" type="password"
+                                    name="uPass">
+                            </div>
+                            <div class="signUp_userPass_div">
+                                <input placeholder="Подтвердить Пароль" class="input_field"
+                                    id="signUp_uPass_confirm_input" type="password" name="uPassConfirm">
+                            </div>
+                            <div class="remember_me">
+                                <input type="checkbox" name="signUp_uRemember" id="signUp_uRemember">
+                                <label for="signUp_uRemember">
+                                    <p>Запомнить</p>
+                                </label>
+                            </div>
+                            <div class="login_btn">
+                                <input type="submit" value="Регистрация">
+                            </div>
+                        </div>
+                    </form>
+                </div>
                 <div class="sign">
                     <div class="log_in">
                         <a id="sign_in" href=""><img src="./img/header_part_img/ic_sharp-log-in.png" alt="">Войти /</a>
@@ -35,9 +106,9 @@
                 <div class="menu_open_close"></div>
                 <div class="menu">
                     <ul>
-                        <li><a href="">Понравилось</a></li>
-                        <li><a href="">личный кабинет</a></li>
-                        <li><a href="">настройки</a></li>
+                        <li><a href="#">Понравилось</a></li>
+                        <li><a href="#">личный кабинет</a></li>
+                        <li><a href="#">настройки</a></li>
                     </ul>
                     <div class="all_search">
                         <form class="search_form" action="#">
@@ -57,65 +128,6 @@
     <main>
         <section class="main_ruck_suck">
             <div class="ruck_suck_content">
-                <div class="signUp_window">
-                    <div class="signUp_window_close">
-                        <button class="signUp_window_close_btn">X</button>
-                    </div>
-                    <form action="#">
-                        <div class="user_avatar">
-                            <img src="./img/login/user.png" alt="">
-                        </div>
-                        <div class="signUp_content">
-                            <div class="signUp_userName_div">
-                                <input placeholder="Имя Пользователя" class="input_field" id="signUp_uName_input" name="uName" type="text">
-                            </div>
-                            <div class="signUp_userEmail_div">
-                                <input placeholder="Эл. Адрес" class="input_field" id="signUp_uEmail_input" name="uEmail" type="email">
-                            </div>
-                            <div class="signUp_userPass_div">
-                                <input placeholder="Пароль" class="input_field" id="signUp_uPass_input" type="password" name="uPass">
-                            </div>
-                            <div class="signUp_userPass_div">
-                                <input placeholder="Подтвердить Пароль" class="input_field" id="signUp_uPass_confirm_input" type="password" name="uPassConfirm">
-                            </div>
-                            <div class="remember_me">
-                                <input type="checkbox" name="signUp_uRemember" id="signUp_uRemember">
-                                <label for="signUp_uRemember"><p>Запомнить</p></label>
-                            </div>
-                            <div class="login_btn">
-                                <input type="submit" value="Регистрация">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="login_window">
-                    <div class="login_window_close">
-                        <button class="login_window_close_btn">X</button>
-                    </div>
-                    <form action="#">
-                        <div class="user_avatar">
-                            <img src="./img/login/user.png" alt="">
-                        </div>
-                        <div class="login_content">
-                            <div class="userName_div">
-                                <input placeholder="Имя Пользователя" class="input_field" id="uName_input" name="uName" type="text">
-                            </div>
-                            <div class="userPass_div">
-                                <input placeholder="Пароль" class="input_field" id="uPass_input" type="password" name="uPass">
-                            </div>
-                            <div class="remember_me">
-                                <input type="checkbox" name="uRemember" id="uRemember">
-                                <label for="uRemember"><p>Запомнить</p></label>
-                            </div>
-                            <div class="login_btn">
-                                <input type="submit" value="Войти">
-                            </div>
-                            <div class="forgotPass_div">
-                                <a href="#">Забыли пароль?</a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
                 <div class="content_logo">
                     <img src="./img/ruck_suck_img/PORTEN.svg" alt="">
                     <p>санкт-петербург</p>

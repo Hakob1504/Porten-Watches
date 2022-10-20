@@ -82,6 +82,145 @@ if (window.screen.width <= 900) {
         }
     })
 }
+// shop icon, but watches
+let main = document.querySelector('main');
+
+shopIcon.addEventListener('click', () => {
+    let lastChild = main.lastElementChild;
+    while (lastChild) {
+        main.removeChild(lastChild);
+        lastChild = main.lastElementChild;
+    }
+    
+    let watchShop = document.createElement('div');
+    watchShop.className = 'watchshop';
+    main.classList.add('shop_main');
+    main.append(watchShop);
+
+    let shopLine = document.createElement('div');
+    shopLine.className = 'shop_line';
+    main.prepend(shopLine);
+
+    let filterDiv = document.createElement('div');
+    filterDiv.className = 'filter_div';
+    filterDiv.innerHTML = `
+    <div class="filter_btn_div">
+        <button class="filter_btn">
+            <img src="./img/watch_shop_part/filter.png" alt="">
+        </button>
+    </div>
+    <div class="filter_content filter_row filter_closed">
+        <div class="choose_sex">
+            <div class="man_chbox">
+                <input type="checkbox" name="man" id="man">
+                <label for="man">
+                    <p>Мужские</p>
+                </label>
+            </div>
+            <div class="woman_chbox">
+                <input type="checkbox" name="woman" id="woman">
+                <label for="woman">
+                    <p>Женские</p>
+                </label>
+            </div>
+        </div>
+        <div class="choose_price">
+            <p class="price">Цена ₽</p>
+            <div class="price_write_area">
+                <div class="from">
+                    <p>От</p>
+                    <input type="number">
+                </div>
+                <div class="to">
+                    <p>До</p>
+                    <input type="number">
+                </div>
+            </div>
+        </div>
+        <div class="watch_brands">
+            <p class="choose_brand_p">Выберите бренд</p>
+            <div class="choose_brand">
+            <div class="rolex_chbox chbox_div">
+                <input type="checkbox" name="rolex" id="rolex">
+                <label for="rolex">
+                    <p>Rolex</p>
+                </label>
+            </div>
+            <div class="rado_chbox chbox_div">
+                <input type="checkbox" name="rado" id="rado">
+                <label for="rado">
+                    <p>Rado</p>
+                </label>
+            </div>
+            <div class="hamilton_chbox chbox_div">
+                <input type="checkbox" name="hamilton" id="hamilton">
+                <label for="hamilton">
+                    <p>Hamilton</p>
+                </label>
+            </div>
+            <div class="tissot_chbox chbox_div">
+                <input type="checkbox" name="tissot" id="tissot">
+                <label for="tissot">
+                    <p>Tissot</p>
+                </label>
+            </div>
+            <div class="michael_cors_chbox chbox_div">
+                <input type="checkbox" name="michael_cors" id="michael_cors">
+                <label for="michael_cors">
+                    <p>Michael Cors</p>
+                </label>
+            </div>
+            <div class="casio_chbox chbox_div">
+                <input type="checkbox" name="casio" id="casio">
+                <label for="casio">
+                    <p>Casio</p>
+                </label>
+            </div>
+            </div>
+        </div>
+    </div>
+    `;
+    main.prepend(filterDiv);
+    
+    let filterIcon = document.querySelector('.filter_btn');
+    let filterContent = document.querySelector('.filter_content');
+
+    filterIcon.addEventListener('click', () => {
+        filterContent.classList.toggle('filter_content');
+    })
+
+    let filterRow = document.querySelector('.filter_row');
+    filterIcon.addEventListener('click', () => {
+        filterRow.classList.toggle('filter_closed');
+    })
+
+    for (let i = 1; i <= 15; i++) {
+        let watchContent = document.createElement('div');
+        watchContent.className = 'watch_content';
+        watchContent.innerHTML =
+            `
+            <img src="./img/season_collection/62050 1.png" alt="">
+            <div class="about_watch">
+                <p class="watch_name">Louis XVI ATHOS</p>
+                <p class="watch_price">165 000 руб.</p>
+            </div>
+            <div class="buy_div">
+                <button class="plus">+</button>
+                <input class="buy_btn" type="submit" value="Купить">
+                <button class="minus">-</button>
+            </div`;
+        watchShop.append(watchContent)
+        main.style = `
+        background: #b8b4b4;
+        padding: 50px 30px;
+        display:flex;
+        justify-content: space-between;
+        gap:50px;
+        `;
+    }
+})
+
+// shop icon, but watches end
 
 // new comings
 let newWatches = document.querySelector('.new_watches');
