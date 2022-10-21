@@ -128,8 +128,8 @@ a:active {
     color: #FFFFFF;
 }
 
-.login_window_close,
-.signUp_window_close {
+.window_close,
+.window_close {
     width: 100%;
     display: flex;
     justify-content: flex-end;
@@ -143,8 +143,8 @@ form h2 {
     color: #FFFFFF;
 }
 
-.login_window_close .login_window_close_btn,
-.signUp_window_close .signUp_window_close_btn {
+.window_close .window_close_btn,
+.window_close .window_close_btn {
     background-color: rgb(171, 5, 5);
     color: #FFFFFF;
     border: none;
@@ -153,13 +153,13 @@ form h2 {
     height: 25px;
 }
 
-.login_window_close .login_window_close_btn:hover,
-.signUp_window_close .signUp_window_close_btn:hover {
+.window_close .window_close_btn:hover,
+.window_close .window_close_btn:hover {
     opacity: 0.6;
 }
 
-.login_window_close .login_window_close_btn:active,
-.signUp_window_close .signUp_window_close_btn:active {
+.window_close .window_close_btn:active,
+.window_close .window_close_btn:active {
     opacity: 0.4;
 }
 
@@ -426,16 +426,17 @@ ul li:hover {
 
 /* main ruck-suck */
 
-                    /* shop part start */
+/* shop part start */
 
 /* filter part start */
 
-.filter_cart{
+.filter_cart {
     height: 100%;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
+
 .filter_div {
     display: flex;
     flex-direction: column;
@@ -443,8 +444,10 @@ ul li:hover {
     width: 200px;
     height: 100%;
     background-color: #D0D0D0;
+    cursor: pointer;
 }
-.filter_row{
+
+.filter_row {
     animation: animatezoom 1s linear;
 }
 
@@ -538,39 +541,74 @@ input::-webkit-inner-spin-button {
 /* filter part end */
 
 /* cart part start */
-    /* .all_cart_content{
-        position: fixed;
-        display: none;
-        top: 0;
-        left: 0;
-        z-index: 1;
-        width: 100%;
+.cart_icon {
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    padding: 10px;
+    background-color: #D0D0D0;
+    cursor: pointer;
+}
+
+.cart_icon_btn {
+    cursor: pointer;
+    border: none;
+    width: 50px;
+    height: 50px;
+    background: url(./img/watch_shop_part/shopping-bag.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.cart_content {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+.opened {
+    display: block;
+}
+
+.cart_div {
+    width: 90%;
+    height: 100%;
+    box-shadow: 2px 2px 30px;
+    margin: 8% auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #D0D0D0;
+    animation: cartHeight 1s cubic-bezier(0.85, 0.055, 0.675, 0.19);
+}
+
+@keyframes cartHeight {
+    from {
+        height: 5%;
+    }
+
+    to {
         height: 100%;
     }
-    .cart_div{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 200px;
-        height: 100%;
-        background-color: #D0D0D0;
-    }
-    .cart_icon{
-        padding: 10px;
-    }
-    .cart_icon_btn{
-        cursor: pointer;
-        border: none;
-        width: 50px;
-        height: 50px;
-        background: url(./img/watch_shop_part/shopping-bag.png);
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-    .cart_content{
-        width: 65%;
-        padding: 50px 100px;
-    } */
+}
+
+.empty_cart_content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.cart_content_p_medium{
+    font-size: 20px;
+}
+.cart_content_p_large{
+    font-size: 30px;
+}
 
 /* cart part end */
 
@@ -579,6 +617,7 @@ input::-webkit-inner-spin-button {
     width: 5px;
     background-color: #1F1F1F;
 }
+
 /* shop line end */
 
 /* watchshop part start */
@@ -635,7 +674,8 @@ input::-webkit-inner-spin-button {
     cursor: pointer;
     transition: 0.3s linear;
 }
-.buy_div .like img{
+
+.buy_div .like img {
     width: inherit;
     height: inherit;
 }
@@ -665,6 +705,7 @@ input::-webkit-inner-spin-button {
 .buy_div input:active {
     opacity: 0.4;
 }
+
 /* watchshop part end */
 
 /* shop part end */
@@ -1183,7 +1224,8 @@ input::-webkit-inner-spin-button {
     .shop_line {
         display: none;
     }
-    .filter_cart{
+
+    .filter_cart {
         width: 100%;
     }
 

@@ -42,7 +42,7 @@ closeSearch.addEventListener('click', () => {
 // login content appear
 let signInBtn = document.querySelector('#sign_in');
 let loginWindow = document.querySelector('.login_window');
-let loginWindowCloseBtn = document.querySelector('.login_window_close_btn');
+let loginWindowCloseBtn = document.querySelector('.window_close_btn');
 
 signInBtn.addEventListener('click', (e) => {
     e.preventDefault()
@@ -57,7 +57,7 @@ loginWindowCloseBtn.addEventListener('click', () => {
 // sign up content appear
 let signUpBtn = document.querySelector('#sign_up');
 let signUpWindow = document.querySelector('.signUp_window');
-let signUpWindowCloseBtn = document.querySelector('.signUp_window_close_btn');
+let signUpWindowCloseBtn = document.querySelector('.window_close_btn');
 
 signUpBtn.addEventListener('click', (e) => {
     e.preventDefault()
@@ -68,12 +68,12 @@ signUpWindowCloseBtn.addEventListener('click', () => {
 })
 
 window.addEventListener('click', (event) => {
-    if(event.target == loginWindow) {
+    if (event.target == loginWindow) {
         loginWindow.classList.remove('login_opened')
-    } else if(event.target == signUpWindow) {
+    } else if (event.target == signUpWindow) {
         signUpWindow.classList.remove('login_opened')
     }
-} )
+})
 
 // sign up content appear end
 // collection 2018
@@ -99,7 +99,7 @@ shopIcon.addEventListener('click', () => {
         main.removeChild(lastChild);
         lastChild = main.lastElementChild;
     }
-    
+
     let watchShop = document.createElement('div');
     watchShop.className = 'watchshop';
     main.classList.add('shop_main');
@@ -113,9 +113,9 @@ shopIcon.addEventListener('click', () => {
     filter_cart.className = 'filter_cart';
     main.prepend(filter_cart)
 
-    let filterDiv = document.createElement('div');
-    filterDiv.className = 'filter_div';
-    filterDiv.innerHTML = `
+    let filterBtn = document.createElement('div');
+    filterBtn.className = 'filter_div';
+    filterBtn.innerHTML = `
     <div class="filter_btn_div">
         <button class="filter_btn"></button>
     </div>
@@ -190,35 +190,54 @@ shopIcon.addEventListener('click', () => {
         </div>
     </div>
     `;
-//     let allCartDiv = document.createElement('div');
-//     allCartDiv.className = 'all_cart_content';
-//     allCartDiv.innerHTML = 
-//     `
-//     <div class="cart_icon">
-//     <button class="cart_icon_btn"></button>
-// </div>
-//     <div class="cart_div">
-//         <div class="cart_content">
-//             <p class="cart_content_p">
-//                 Корзина пуст. <br>
-//                 Нажмите на сердечко, чтобы добавить продукт в корзину.
-//             </p>
-//         </div>
-//     </div>
-//     `
+    filter_cart.prepend(filterBtn);
 
-//     filter_cart.append(allCartDiv);
-    filter_cart.prepend(filterDiv);
-    
-    let filterIcon = document.querySelector('.filter_btn');
+    let cartIcon = document.createElement('div');
+    cartIcon.className = 'cart_icon';
+    cartIcon.innerHTML = `
+    <button class="cart_icon_btn"></button>
+    `;
+    filter_cart.append(cartIcon);
+
+    let allCartDiv = document.createElement('div');
+    allCartDiv.classList.add('cart_content');
+    allCartDiv.innerHTML = `
+    <div class="cart_div">
+        <div class="window_close">
+            <button class="window_close_btn">X</button>
+        </div>
+        <div class="empty_cart_content">
+            <p class="cart_content_p_large">Корзина пуст.</p>
+            <p class="cart_content_p_medium">У нас вы найдёте ваши любимые часы.</p>
+        </div>
+    </div>
+    `;
+    filter_cart.append(allCartDiv);
+
+    let cartContent = document.querySelector('.cart_content');
+    // let cartCloseBtn = document.querySelector('.window_close_btn');
+
+    cartIcon.addEventListener('click', () => {
+        cartContent.classList.add('opened');
+    })
+    // cartCloseBtn.addEventListener('click', () => {
+        
+    // })
+
+    window.addEventListener('click', (event) => {
+        if (event.target == cartContent) {
+            cartContent.classList.remove('opened')
+        }
+    })
+
     let filterContent = document.querySelector('.filter_content');
 
-    filterIcon.addEventListener('click', () => {
+    filterBtn.addEventListener('click', () => {
         filterContent.classList.toggle('filter_content');
     })
 
     let filterRow = document.querySelector('.filter_row');
-    filterIcon.addEventListener('click', () => {
+    filterBtn.addEventListener('click', () => {
         filterRow.classList.toggle('filter_closed');
     })
 
