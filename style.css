@@ -3,19 +3,24 @@
     margin: 0;
     box-sizing: border-box;
 }
-body{
+
+body {
     overflow: scroll;
     overflow-x: hidden;
 }
-body::-webkit-scrollbar{
+
+body::-webkit-scrollbar {
     width: 15px;
 }
-body::-webkit-scrollbar-track{
+
+body::-webkit-scrollbar-track {
     background-color: #D0D0D0;
 }
-body::-webkit-scrollbar-thumb{
+
+body::-webkit-scrollbar-thumb {
     background-color: #969696;
 }
+
 a:hover {
     opacity: 0.7;
     color: #FFFFFF;
@@ -74,16 +79,43 @@ a:active {
 /* login window */
 .login_window,
 .signUp_window {
-    border: 2px solid #D0D0D0;
-    background: #b8b4b4;
     position: fixed;
-    top: 20%;
-    left: 37%;
     display: none;
-    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
 }
 
-.lgn_window {
+.animate {
+    animation: animatezoom 0.6s;
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
+
+.login_window form,
+.signUp_window form {
+    width: 65%;
+    background-color: #b8b4b4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 2px 2px 30px;
+    margin: 5% auto 15% auto;
+    padding-bottom: 20px;
+    gap: 30px;
+}
+
+.login_opened {
     display: block;
 }
 
@@ -98,10 +130,12 @@ a:active {
 
 .login_window_close,
 .signUp_window_close {
+    width: 100%;
     display: flex;
     justify-content: flex-end;
 }
-form h2{
+
+form h2 {
     font-family: 'PT Sans';
     font-style: normal;
     font-weight: 600;
@@ -129,23 +163,14 @@ form h2{
     opacity: 0.4;
 }
 
-.login_window form,
-.signUp_window form {
-    padding: 20px 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-}
-
 form .user_avatar {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
 }
 
 form .user_avatar img {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
 }
 
 .login_content,
@@ -156,10 +181,11 @@ form .user_avatar img {
 }
 
 .input_field {
-    width: 200px;
+    font-size: 18px;
+    width: 400px;
     outline: none;
     border: none;
-    padding: 10px 15px;
+    padding: 20px 15px;
     background: rgba(255, 255, 255, 0.4);
     color: #FFFFFF;
 }
@@ -179,7 +205,7 @@ form .user_avatar img {
 }
 
 .login_btn input {
-    padding: 5px 20px;
+    padding: 10px 30px;
     cursor: pointer;
     background: transparent;
     border: 2px solid #FFFFFF;
@@ -317,6 +343,7 @@ form .user_avatar img {
 }
 
 .shop_icon {
+    border: none;
     width: 25px;
     height: 25px;
     background: url(./img//header_part_img/bx_bx-cart.png);
@@ -328,11 +355,13 @@ form .user_avatar img {
 .shop_icon:hover {
     opacity: 0.6;
 }
+
 .shop_icon:focus {
     opacity: 0.6;
 }
 
 .search_icon {
+    border: none;
     width: 25px;
     height: 25px;
     background: url(./img/header_part_img/gridicons_search.png);
@@ -372,6 +401,7 @@ ul li a {
     text-decoration: none;
     padding: 20px 0;
 }
+
 ul li a:focus {
     opacity: 0.6;
     background-color: rgb(31, 31, 31, 0.8);
@@ -395,77 +425,99 @@ ul li:hover {
 }
 
 /* main ruck-suck */
-/* watchshop start */
-.filter_div{
+
+                    /* shop part start */
+
+/* filter part start */
+
+.filter_cart{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.filter_div {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 200px;
     height: 100%;
     background-color: #D0D0D0;
-
 }
+.filter_row{
+    animation: animatezoom 1s linear;
+}
+
 .filter_content {
     display: none;
 }
-.filter_btn_div{
+
+.filter_btn_div {
     padding: 10px;
 }
-.filter_btn{
+
+.filter_btn {
     cursor: pointer;
-    background: none;
+    background: url(./img/watch_shop_part/filter.png);
+    background-repeat: no-repeat;
+    background-size: cover;
     border: none;
     width: 40px;
     height: 40px;
 }
-.filter_btn:hover{
+
+.filter_btn:hover {
     opacity: 0.6;
 }
-.filter_btn img{
-    width: 40px;
-    height: 40px;
-}
-.choose_sex{
+
+.choose_sex {
     display: flex;
     gap: 10px;
     border-bottom: 2px solid #1F1F1F;
     border-top: 2px solid #1F1F1F;
     padding: 10px;
 }
-.man_chbox, .woman_chbox{
+
+.man_chbox,
+.woman_chbox {
     display: flex;
     gap: 10px;
 }
 
-.choose_price{
-    padding:20px 10px;
+.choose_price {
+    padding: 20px 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
     border-bottom: 2px solid #1F1F1F;
 }
-.choose_price input{
+
+.choose_price input {
     width: 75px;
     border: none;
     outline: none;
 }
+
 .choose_price input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  appearance: none;
+    appearance: none;
 }
-.price_write_area{
+
+.price_write_area {
     display: flex;
     gap: 30px;
 }
+
 .price_write_area .from,
-.price_write_area .to{
+.price_write_area .to {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
 }
-.watch_brands{
+
+.watch_brands {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -473,27 +525,71 @@ input::-webkit-inner-spin-button {
     gap: 10px;
     padding: 20px 10px;
 }
+
 .watch_brands .choose_brand_p {
     margin-bottom: 10px;
 }
-.chbox_div{
+
+.chbox_div {
     display: flex;
     gap: 5px;
 }
 
-.shop_line{
+/* filter part end */
+
+/* cart part start */
+    /* .all_cart_content{
+        position: fixed;
+        display: none;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+    }
+    .cart_div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 200px;
+        height: 100%;
+        background-color: #D0D0D0;
+    }
+    .cart_icon{
+        padding: 10px;
+    }
+    .cart_icon_btn{
+        cursor: pointer;
+        border: none;
+        width: 50px;
+        height: 50px;
+        background: url(./img/watch_shop_part/shopping-bag.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .cart_content{
+        width: 65%;
+        padding: 50px 100px;
+    } */
+
+/* cart part end */
+
+/* shop line start */
+.shop_line {
     width: 5px;
     background-color: #1F1F1F;
 }
+/* shop line end */
 
-.watchshop{
+/* watchshop part start */
+.watchshop {
     display: grid;
     grid-template-columns: auto auto auto auto auto;
     background-color: #b8b4b4;
     gap: 30px;
 }
 
-.watch_content{
+.watch_content {
     width: 200px;
     height: 300px;
     display: flex;
@@ -503,43 +599,56 @@ input::-webkit-inner-spin-button {
     padding: 20px 0;
     transition: 0.3s linear;
 }
-.watch_content:hover{
+
+.watch_content:hover {
     transform: scale(1.05);
 }
-.watch_content .about_watch{
+
+.watch_content .about_watch {
     padding: 0 10px;
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
-.watch_content{
+
+.watch_content {
     display: flex;
     align-items: center;
 }
-.watch_content img{
+
+.watch_content img {
     width: 127px;
 }
-.buy_div{
+
+.buy_div {
     display: flex;
     justify-content: center;
     gap: 10px;
 }
-.buy_div button{
+
+.buy_div button {
     width: 25px;
     font-size: 20px;
     color: #FFFFFF;
     background: none;
-    border: 2px solid #FFFFFF;
+    border: none;
     cursor: pointer;
     transition: 0.3s linear;
 }
-.buy_div button:hover{
-    transform: scale(1.05);
+.buy_div .like img{
+    width: inherit;
+    height: inherit;
 }
-.buy_div button:active{
+
+.buy_div button:hover {
+    transform: scale(1.1);
+}
+
+.buy_div button:active {
     opacity: 0.4;
 }
-.buy_div input{
+
+.buy_div input {
     color: #FFFFFF;
     background: none;
     border: 2px solid #FFFFFF;
@@ -548,14 +657,17 @@ input::-webkit-inner-spin-button {
     padding: 0 10px;
     transition: 0.3s linear;
 }
-.buy_div input:hover{
+
+.buy_div input:hover {
     transform: scale(1.05);
 }
-.buy_div input:active{
+
+.buy_div input:active {
     opacity: 0.4;
 }
+/* watchshop part end */
 
-/* watchshop end */
+/* shop part end */
 
 .main_ruck_suck {
     display: flex;
@@ -1034,126 +1146,164 @@ input::-webkit-inner-spin-button {
     text-decoration-line: underline;
     color: #D0D0D0;
 }
+
 /* watchshop resp start */
 @media screen and (max-width: 1500px) {
-    .watch_content{
+    .watch_content {
         width: 160px;
     }
-    .watch_content img{
+
+    .watch_content img {
         width: 107px;
     }
-    .about_watch .watch_name{
+
+    .about_watch .watch_name {
         font-size: 16px;
     }
-    .about_watch .watch_price{
+
+    .about_watch .watch_price {
         font-size: 14px;
     }
-    .buy_div button{
+
+    .buy_div button {
         font-size: 16px;
     }
-    .buy_div input{
+
+    .buy_div input {
         font-size: 16px;
     }
 }
+
 @media screen and (max-width: 1300px) {
-    .shop_main{
+    .shop_main {
         flex-direction: column;
         align-items: center;
     }
-    .shop_line{
+
+    .shop_line {
         display: none;
     }
-    .filter_div{
+    .filter_cart{
         width: 100%;
     }
-    .filter_row{
+
+    .filter_div {
+        width: 100%;
+    }
+
+    .filter_row {
         display: flex;
         align-items: baseline;
         gap: 50px;
     }
-    .filter_closed{
+
+    .filter_closed {
         display: none;
     }
-    .choose_sex{
+
+    .choose_sex {
         flex-direction: column;
         border: none;
     }
-    .choose_price{
+
+    .choose_price {
         border-bottom: none;
         border-right: 2px solid black;
         border-left: 2px solid black;
         padding: 0 60px;
     }
-    .choose_brand{
+
+    .choose_brand {
         display: grid;
         grid-template-columns: auto auto auto;
         gap: 20px;
         border-bottom: none;
     }
 }
+
 @media screen and (max-width: 1000px) {
-    .watchshop{
+    .watchshop {
         grid-template-columns: auto auto auto auto;
     }
-    .filter_row{
+
+    .filter_row {
         gap: 20px;
         padding: 10px;
     }
-    .choose_price{
+
+    .choose_price {
         padding: 0 30px;
     }
-    .price_write_area{
+
+    .price_write_area {
         flex-direction: column;
         gap: 10px;
     }
 }
+
 @media screen and (max-width: 760px) {
-    .watchshop{
+    .watchshop {
         grid-template-columns: auto auto auto;
     }
 }
+
 @media screen and (max-width: 675px) {
-    .choose_brand{
+    .choose_brand {
         grid-template-columns: auto auto;
     }
+
+    .input_field {
+        width: 200px;
+    }
 }
+
 @media screen and (max-width: 570px) {
-    .watch_content{
+    .watch_content {
         width: 160px;
         height: 250px;
     }
-    .watch_content img{
+
+    .watch_content img {
         width: 87px;
     }
-    .about_watch .watch_name{
+
+    .about_watch .watch_name {
         font-size: 12px;
     }
-    .about_watch .watch_price{
+
+    .about_watch .watch_price {
         font-size: 12px;
     }
-    .buy_div button{
+
+    .buy_div button {
         font-size: 14px;
     }
-    .buy_div input{
+
+    .buy_div input {
         font-size: 14px;
     }
-    .filter_row{
+
+    .filter_row {
         font-size: 12px;
         gap: 0;
     }
-    .choose_price{
+
+    .choose_price {
         padding: 0 10px;
     }
-    .watchshop{
+
+    .watchshop {
         grid-template-columns: auto auto;
     }
 }
+
 @media screen and (max-width: 400px) {
-    .filter_row{
+    .filter_row {
         flex-direction: column;
         align-items: center;
     }
-    .choose_price{
+
+    .choose_price {
         border-top: 2px solid black;
         border-bottom: 2px solid black;
         border-right: none;
@@ -1161,8 +1311,9 @@ input::-webkit-inner-spin-button {
         padding: 10px;
     }
 }
+
 @media screen and (max-width: 360px) {
-    .watchshop{
+    .watchshop {
         grid-template-columns: auto;
     }
 }
@@ -1172,7 +1323,8 @@ input::-webkit-inner-spin-button {
     .footer_part1 .about {
         padding: 80px 40px;
     }
-    .footer_part2{
+
+    .footer_part2 {
         padding: 10px 40px;
     }
 }
@@ -1301,26 +1453,8 @@ input::-webkit-inner-spin-button {
 }
 
 @media screen and (max-width: 465px) {
-
-    .login_window form,
-    .signUp_window form {
-        padding: 20px 60px;
-    }
-
-    .login_window .user_avatar,
-    .signUp_window .user_avatar {
-        width: 100px;
-        height: 100px;
-    }
-
-    .login_window .user_avatar img,
-    .signUp_window .user_avatar img {
-        width: 100px;
-        height: 100px;
-    }
-
     .input_field {
-        width: 150px;
+        font-size: 16px;
     }
 
     .remember_me p {
@@ -1409,9 +1543,9 @@ input::-webkit-inner-spin-button {
         padding: 10px;
     }
 
-    .login_window form,
-    .signUp_window form {
-        padding: 20px;
+    .input_field {
+        width: 160px;
+        padding: 10px;
     }
 
     .search_form .search {

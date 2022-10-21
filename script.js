@@ -46,10 +46,10 @@ let loginWindowCloseBtn = document.querySelector('.login_window_close_btn');
 
 signInBtn.addEventListener('click', (e) => {
     e.preventDefault()
-    loginWindow.classList.add('lgn_window');
+    loginWindow.classList.add('login_opened');
 })
 loginWindowCloseBtn.addEventListener('click', () => {
-    loginWindow.classList.remove('lgn_window');
+    loginWindow.classList.remove('login_opened');
 })
 
 // login content appear end
@@ -61,11 +61,19 @@ let signUpWindowCloseBtn = document.querySelector('.signUp_window_close_btn');
 
 signUpBtn.addEventListener('click', (e) => {
     e.preventDefault()
-    signUpWindow.classList.add('lgn_window');
+    signUpWindow.classList.add('login_opened');
 })
 signUpWindowCloseBtn.addEventListener('click', () => {
-    signUpWindow.classList.remove('lgn_window');
+    signUpWindow.classList.remove('login_opened');
 })
+
+window.addEventListener('click', (event) => {
+    if(event.target == loginWindow) {
+        loginWindow.classList.remove('login_opened')
+    } else if(event.target == signUpWindow) {
+        signUpWindow.classList.remove('login_opened')
+    }
+} )
 
 // sign up content appear end
 // collection 2018
@@ -82,7 +90,7 @@ if (window.screen.width <= 900) {
         }
     })
 }
-// shop icon, but watches
+// shop icon, buy watches, filter
 let main = document.querySelector('main');
 
 shopIcon.addEventListener('click', () => {
@@ -101,13 +109,15 @@ shopIcon.addEventListener('click', () => {
     shopLine.className = 'shop_line';
     main.prepend(shopLine);
 
+    let filter_cart = document.createElement('div');
+    filter_cart.className = 'filter_cart';
+    main.prepend(filter_cart)
+
     let filterDiv = document.createElement('div');
     filterDiv.className = 'filter_div';
     filterDiv.innerHTML = `
     <div class="filter_btn_div">
-        <button class="filter_btn">
-            <img src="./img/watch_shop_part/filter.png" alt="">
-        </button>
+        <button class="filter_btn"></button>
     </div>
     <div class="filter_content filter_row filter_closed">
         <div class="choose_sex">
@@ -180,7 +190,25 @@ shopIcon.addEventListener('click', () => {
         </div>
     </div>
     `;
-    main.prepend(filterDiv);
+//     let allCartDiv = document.createElement('div');
+//     allCartDiv.className = 'all_cart_content';
+//     allCartDiv.innerHTML = 
+//     `
+//     <div class="cart_icon">
+//     <button class="cart_icon_btn"></button>
+// </div>
+//     <div class="cart_div">
+//         <div class="cart_content">
+//             <p class="cart_content_p">
+//                 Корзина пуст. <br>
+//                 Нажмите на сердечко, чтобы добавить продукт в корзину.
+//             </p>
+//         </div>
+//     </div>
+//     `
+
+//     filter_cart.append(allCartDiv);
+    filter_cart.prepend(filterDiv);
     
     let filterIcon = document.querySelector('.filter_btn');
     let filterContent = document.querySelector('.filter_content');
@@ -205,9 +233,9 @@ shopIcon.addEventListener('click', () => {
                 <p class="watch_price">165 000 руб.</p>
             </div>
             <div class="buy_div">
-                <button class="plus">+</button>
+                <button class="plus">&plus;</button>
                 <input class="buy_btn" type="submit" value="Купить">
-                <button class="minus">-</button>
+                <button class="like"><img src="./img/watch_shop_part/heart.png"></button>
             </div`;
         watchShop.append(watchContent)
         main.style = `
