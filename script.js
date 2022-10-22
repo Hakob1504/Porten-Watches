@@ -42,14 +42,14 @@ closeSearch.addEventListener('click', () => {
 // login content appear
 let signInBtn = document.querySelector('#sign_in');
 let loginWindow = document.querySelector('.login_window');
-let loginWindowCloseBtn = document.querySelector('.window_close_btn');
+let loginWindowCloseBtn = document.querySelector('#signIn_close_btn');
 
 signInBtn.addEventListener('click', (e) => {
     e.preventDefault()
-    loginWindow.classList.add('login_opened');
+    loginWindow.classList.add('opened');
 })
 loginWindowCloseBtn.addEventListener('click', () => {
-    loginWindow.classList.remove('login_opened');
+    loginWindow.classList.remove('opened');
 })
 
 // login content appear end
@@ -57,21 +57,22 @@ loginWindowCloseBtn.addEventListener('click', () => {
 // sign up content appear
 let signUpBtn = document.querySelector('#sign_up');
 let signUpWindow = document.querySelector('.signUp_window');
-let signUpWindowCloseBtn = document.querySelector('.window_close_btn');
+let signUpWindowCloseBtn = document.querySelector('#signUp_close_btn');
 
 signUpBtn.addEventListener('click', (e) => {
     e.preventDefault()
-    signUpWindow.classList.add('login_opened');
+    signUpWindow.classList.add('opened');
+    signUpWindowCloseBtn.addEventListener('click', () => {
+        signUpWindow.classList.remove('opened');
+    })
 })
-signUpWindowCloseBtn.addEventListener('click', () => {
-    signUpWindow.classList.remove('login_opened');
-})
+
 
 window.addEventListener('click', (event) => {
     if (event.target == loginWindow) {
-        loginWindow.classList.remove('login_opened')
+        loginWindow.classList.remove('opened')
     } else if (event.target == signUpWindow) {
-        signUpWindow.classList.remove('login_opened')
+        signUpWindow.classList.remove('opened')
     }
 })
 
@@ -90,7 +91,7 @@ if (window.screen.width <= 900) {
         }
     })
 }
-// shop icon, buy watches, filter
+// shop icon, buy watches, filter, cart
 let main = document.querySelector('main');
 
 shopIcon.addEventListener('click', () => {
@@ -204,7 +205,7 @@ shopIcon.addEventListener('click', () => {
     allCartDiv.innerHTML = `
     <div class="cart_div">
         <div class="window_close">
-            <button class="window_close_btn">X</button>
+            <button id="cart_close_btn" class="window_close_btn">X</button> 
         </div>
         <div class="empty_cart_content">
             <p class="cart_content_p_large">Корзина пуст.</p>
@@ -215,14 +216,14 @@ shopIcon.addEventListener('click', () => {
     filter_cart.append(allCartDiv);
 
     let cartContent = document.querySelector('.cart_content');
-    // let cartCloseBtn = document.querySelector('.window_close_btn');
+    let cartCloseBtn = document.querySelector('#cart_close_btn');
 
     cartIcon.addEventListener('click', () => {
         cartContent.classList.add('opened');
+        cartCloseBtn.addEventListener('click', () => {
+            cartContent.classList.remove('opened')
+        })
     })
-    // cartCloseBtn.addEventListener('click', () => {
-        
-    // })
 
     window.addEventListener('click', (event) => {
         if (event.target == cartContent) {
@@ -241,18 +242,104 @@ shopIcon.addEventListener('click', () => {
         filterRow.classList.toggle('filter_closed');
     })
 
-    for (let i = 1; i <= 15; i++) {
+    // add watches to shop
+
+    let watchesArr = [
+        {
+            img: "./img/season_collection/62050 1.png",
+            name: "Louis XVI ATHOS",
+            price: "165 000 руб",
+        },       
+        {
+            img: "./img/season_collection/62050 1.png",
+            name: "Louis XVI ATHOS",
+            price: "165 000 руб"
+        },
+        {
+            img: "./img/season_collection/62050 1.png",
+            name: "Louis XVI ATHOS",
+            price: "165 000 руб"
+        },       
+        {
+            img: "./img/season_collection/62050 1.png",
+            name: "Louis XVI ATHOS",
+            price: "165 000 руб"
+        },
+        {
+            img: "./img/season_collection/62050 1.png",
+            name: "Louis XVI ATHOS",
+            price: "165 000 руб"
+        },       
+        {
+            img: "./img/season_collection/62050 1.png",
+            name: "Louis XVI ATHOS",
+            price: "165 000 руб"
+        },
+        {
+            img: "./img/season_collection/62050 1.png",
+            name: "Louis XVI ATHOS",
+            price: "165 000 руб"
+        },       
+        {
+            img: "./img/season_collection/62050 1.png",
+            name: "Louis XVI ATHOS",
+            price: "165 000 руб"
+        },
+        {
+            img: "./img/season_collection/62050 1.png",
+            name: "Louis XVI ATHOS",
+            price: "165 000 руб"
+        },       
+        {
+            img: "./img/season_collection/62050 1.png",
+            name: "Louis XVI ATHOS",
+            price: "165 000 руб"
+        },
+        {
+            img: "./img/season_collection/62050 1.png",
+            name: "Louis XVI ATHOS",
+            price: "165 000 руб"
+        },       
+        {
+            img: "./img/season_collection/62050 1.png",
+            name: "Louis XVI ATHOS",
+            price: "165 000 руб"
+        },
+        {
+            img: "./img/season_collection/62050 1.png",
+            name: "Louis XVI ATHOS",
+            price: "165 000 руб"
+        },       
+        {
+            img: "./img/season_collection/62050 1.png",
+            name: "Louis XVI ATHOS",
+            price: "165 000 руб"
+        },
+        {
+            img: "./img/season_collection/62050 1.png",
+            name: "Louis XVI ATHOS",
+            price: "165 000 руб"
+        },       
+        {
+            img: "./img/season_collection/62050 1.png",
+            name: "Louis XVI ATHOS",
+            price: "165 000 руб"
+        }
+    ];
+
+
+    for (let i = 1; i <= watchesArr.length; i++) {
         let watchContent = document.createElement('div');
         watchContent.className = 'watch_content';
         watchContent.innerHTML =
             `
-            <img src="./img/season_collection/62050 1.png" alt="">
+            <img src="${watchesArr[i].img}" alt="">
             <div class="about_watch">
-                <p class="watch_name">Louis XVI ATHOS</p>
-                <p class="watch_price">165 000 руб.</p>
+                <p class="watch_name">${watchesArr[i].name}</p>
+                <p class="watch_price">${watchesArr[i].price}</p>
             </div>
             <div class="buy_div">
-                <button class="plus">&plus;</button>
+                <button class="add_to_cart"><img src="./img/watch_shop_part/shopping-bag.png" alt=""></button>
                 <input class="buy_btn" type="submit" value="Купить">
                 <button class="like"><img src="./img/watch_shop_part/heart.png"></button>
             </div`;
@@ -264,10 +351,15 @@ shopIcon.addEventListener('click', () => {
         justify-content: space-between;
         gap:50px;
         `;
+        shopIcon.style = `opacity: 0.6;`
+
     }
+        // add watches to cart start
 })
 
-// shop icon, but watches end
+// shop icon, buy watches, filter, cart end
+
+
 
 // new comings
 let newWatches = document.querySelector('.new_watches');

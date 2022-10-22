@@ -92,16 +92,6 @@ a:active {
     animation: animatezoom 0.6s;
 }
 
-@keyframes animatezoom {
-    from {
-        transform: scale(0)
-    }
-
-    to {
-        transform: scale(1)
-    }
-}
-
 .login_window form,
 .signUp_window form {
     width: 65%;
@@ -113,10 +103,6 @@ a:active {
     margin: 5% auto 15% auto;
     padding-bottom: 20px;
     gap: 30px;
-}
-
-.login_opened {
-    display: block;
 }
 
 .login_content p,
@@ -586,22 +572,14 @@ input::-webkit-inner-spin-button {
     animation: cartHeight 1s cubic-bezier(0.85, 0.055, 0.675, 0.19);
 }
 
-@keyframes cartHeight {
-    from {
-        height: 5%;
-    }
-
-    to {
-        height: 100%;
-    }
-}
-
 .empty_cart_content {
+    padding: 0 10px;
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 20px;
 }
 .cart_content_p_medium{
     font-size: 20px;
@@ -633,8 +611,9 @@ input::-webkit-inner-spin-button {
     height: 300px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 30px;
-    background-color: #1F1F1F;
+    background-color: #D0D0D0;
     padding: 20px 0;
     transition: 0.3s linear;
 }
@@ -644,15 +623,13 @@ input::-webkit-inner-spin-button {
 }
 
 .watch_content .about_watch {
-    padding: 0 10px;
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
-
-.watch_content {
-    display: flex;
-    align-items: center;
+.watch_content .watch_name,
+.watch_content .watch_price{
+    color: #1F1F1F;
 }
 
 .watch_content img {
@@ -675,7 +652,7 @@ input::-webkit-inner-spin-button {
     transition: 0.3s linear;
 }
 
-.buy_div .like img {
+.buy_div button img {
     width: inherit;
     height: inherit;
 }
@@ -689,9 +666,9 @@ input::-webkit-inner-spin-button {
 }
 
 .buy_div input {
-    color: #FFFFFF;
+    color: #1F1F1F;
     background: none;
-    border: 2px solid #FFFFFF;
+    border: 2px solid #1F1F1F;
     font-size: 20px;
     cursor: pointer;
     padding: 0 10px;
@@ -711,6 +688,7 @@ input::-webkit-inner-spin-button {
 /* shop part end */
 
 .main_ruck_suck {
+    zoom: 0%;
     display: flex;
     justify-content: center;
     background-image: url(./img/ruck_suck_img/Rectangle\ 3.png);
@@ -741,7 +719,10 @@ input::-webkit-inner-spin-button {
     border: 3px solid white;
     padding: 93px 68px;
     gap: 15px;
+    animation: rotate60deg 0.7s linear;
 }
+
+
 
 .content_logo p {
     padding-top: 15px;
@@ -764,6 +745,7 @@ input::-webkit-inner-spin-button {
     line-height: 150%;
     text-transform: uppercase;
     color: #FFFFFF;
+    animation: animatezoom 0.7s linear;
 }
 
 /* season and collection */
@@ -1188,6 +1170,37 @@ input::-webkit-inner-spin-button {
     color: #D0D0D0;
 }
 
+/* animations start */
+@keyframes rotate60deg {
+    from{
+        transform: rotate(60deg);
+    }
+    to{
+        transform: rotate(0);
+    }
+}
+
+@keyframes cartHeight {
+    from {
+        height: 5%;
+    }
+
+    to {
+        height: 100%;
+    }
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
+/* animations end */
+
 /* watchshop resp start */
 @media screen and (max-width: 1500px) {
     .watch_content {
@@ -1262,6 +1275,9 @@ input::-webkit-inner-spin-button {
         border-bottom: none;
     }
 }
+    .cart_icon{
+        width: 100%;
+    }
 
 @media screen and (max-width: 1000px) {
     .watchshop {
